@@ -7,6 +7,7 @@
 <script>
 import { reactive, onMounted, onBeforeUnmount } from "vue";
 import planeImg from "../assets/plane.png";
+import { planeConfig } from "../config";
 
 export default {
   setup() {
@@ -18,9 +19,12 @@ export default {
 
 // 飞机的移动逻辑
 export const usePlane = ({ onAttack }) => {
+  const { x, y, width, height } = planeConfig;
   const planeInfo = reactive({
-    x: 200,
-    y: 200,
+    x,
+    y,
+    width,
+    height,
   });
 
   function move() {
