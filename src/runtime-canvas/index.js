@@ -27,7 +27,6 @@ const renderer = createRenderer({
   },
 
   patchProp(el, key, prevValue, nextValue) {
-    console.log("🚀 ~ patchProp ~ key:", { el, key, nextValue });
     switch (key) {
       case "texture":
         el.texture = Texture.from(nextValue);
