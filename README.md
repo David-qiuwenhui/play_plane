@@ -1,5 +1,9 @@
 # play_plane
 
+Vue3 + custom rederer + pixi.js
+
+飞机大战游戏
+
 ## Project setup
 
 ```
