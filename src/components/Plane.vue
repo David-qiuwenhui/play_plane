@@ -27,7 +27,6 @@ export const usePlane = () => {
     const speed = 20;
     function handlePlaneMove(event) {
       const { code } = event;
-      console.log("🚀 ~ handlePlaneMove ~ code:", code);
       switch (code) {
         case "ArrowRight":
           planeInfo.x += speed;

@@ -2,7 +2,7 @@ import { createRenderer } from "vue";
 import { Texture, Container, Sprite, Text } from "pixi.js";
 const renderer = createRenderer({
   createElement(type) {
-    console.log("🚀 ~ createElement ~ type:", type);
+    // console.log("🚀 ~ createElement ~ type:", type);
     let element;
     switch (type) {
       case "container":
