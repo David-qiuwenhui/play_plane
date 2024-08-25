@@ -11,3 +11,8 @@ export const enemyPlaneConfig = {
     return BASE_SPEED + Math.floor(Math.random() * 10);
   },
 };
+
+// 子弹的移动配置
+export const bulletConfig = {
+  speed: 10,
+};
