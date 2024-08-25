@@ -35,8 +35,8 @@ export default {
 
   setup() {
     // 当前显示的页面
-    const currentPageName = ref("StartPage");
-    // const currentPageName = ref("GamePage");
+    // const currentPageName = ref("StartPage");
+    const currentPageName = ref("GamePage");
     // const currentPageName = ref("EndPage");
 
     // 修改当前显示的页面
