@@ -3,33 +3,48 @@ import { game } from "../game";
 
 export function planeMove(planeInfo) {
   const planeSpeed = 20;
-  let keyCode = "";
+  let leftAndRightCode = "";
+  let upAndDownCode = "";
 
   //   处理键盘按下事件
   function handleKeydown(event) {
     const { code } = event;
-    keyCode = code;
+    if (code === "ArrowRight" || code === "ArrowLeft") {
+      leftAndRightCode = code;
+    }
+
+    if (code === "ArrowUp" || code === "ArrowDown") {
+      upAndDownCode = code;
+    }
   }
 
   //   处理键盘抬起事件
-  function handleKeyup() {
-    keyCode = "";
+  function handleKeyup(event) {
+    const { code } = event;
+    if (code === "ArrowRight" || code === "ArrowLeft") {
+      leftAndRightCode = "";
+    }
+
+    if (code === "ArrowUp" || code === "ArrowDown") {
+      upAndDownCode = "";
+    }
   }
 
   function handleTicker() {
-    switch (keyCode) {
-      case "ArrowRight":
+    if (leftAndRightCode === "ArrowRight" || leftAndRightCode === "ArrowLeft") {
+      if (leftAndRightCode === "ArrowRight") {
         planeInfo.x += planeSpeed;
-        break;
-      case "ArrowLeft":
+      } else {
         planeInfo.x -= planeSpeed;
-        break;
-      case "ArrowUp":
+      }
+    }
+
+    if (upAndDownCode === "ArrowUp" || upAndDownCode === "ArrowDown") {
+      if (upAndDownCode === "ArrowUp") {
         planeInfo.y -= planeSpeed;
-        break;
-      case "ArrowDown":
+      } else {
         planeInfo.y += planeSpeed;
-        break;
+      }
     }
   }
 
