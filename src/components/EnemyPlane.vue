@@ -68,6 +68,7 @@ export const useEnemyPlane = () => {
     });
   }
 
+  // 敌军飞机移动控制
   move();
 
   function bulletHitEnemy(enemyPlane, enemyPlaneIndex) {
