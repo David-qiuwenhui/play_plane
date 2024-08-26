@@ -8,6 +8,7 @@
 import { reactive, onMounted, onBeforeUnmount } from "vue";
 import planeImg from "../assets/plane.png";
 import { planeConfig } from "../config";
+import { planeMove } from "../components/planeMove";
 
 export default {
   setup() {
@@ -26,35 +27,6 @@ export const usePlane = ({ onAttack }) => {
     width,
     height,
   });
-
-  function move() {
-    const planeSpeed = 20;
-    function handlePlaneMove(event) {
-      const { code } = event;
-      switch (code) {
-        case "ArrowRight":
-          planeInfo.x += planeSpeed;
-          break;
-        case "ArrowLeft":
-          planeInfo.x -= planeSpeed;
-          break;
-        case "ArrowUp":
-          planeInfo.y -= planeSpeed;
-          break;
-        case "ArrowDown":
-          planeInfo.y += planeSpeed;
-          break;
-      }
-    }
-
-    onMounted(() => {
-      window.addEventListener("keyup", handlePlaneMove);
-    });
-
-    onBeforeUnmount(() => {
-      window.removeEventListener("keyup", handlePlaneMove);
-    });
-  }
 
   // 我方飞机攻击
   function attack() {
@@ -75,7 +47,7 @@ export const usePlane = ({ onAttack }) => {
   }
 
   // 独立控制move是否执行
-  move();
+  planeMove(planeInfo);
   // 独立控制attack是否执行
   attack();
 
