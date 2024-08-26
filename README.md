@@ -4,6 +4,9 @@ Vue3 + custom rederer + pixi.js
 
 飞机大战游戏
 
+遗留事项：
+使用`v-if`做页面切换时，会有 cpu 占用率较高的现象
+
 ## Project setup
 
 ```

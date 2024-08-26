@@ -37,7 +37,7 @@ export default {
     EnemyPlane,
     Bullet,
   },
-  setup() {
+  setup(props, { emit }) {
     // 我方飞机
     const { planeInfo } = usePlane({
       onAttack(position) {
@@ -54,6 +54,7 @@ export default {
       bullets,
       bulletHitEnemy,
       destroyBullet,
+      emit,
     });
 
     return {
@@ -70,6 +71,7 @@ function useFighting({
   bullets,
   bulletHitEnemy,
   destroyBullet,
+  emit,
 }) {
   function handleTicker() {
     // base case
@@ -80,6 +82,7 @@ function useFighting({
     // 判断我方飞机和敌军飞机是否碰撞
     enemyPlanes.forEach((enemyPlane, index) => {
       if (hitTestObject(planeInfo, enemyPlane)) {
+        // emit("change-page", "EndPgae");
         console.log("planeInfo hit enemyPlane");
       }
     });
